@@ -1,6 +1,5 @@
 module.exports = async function (context, req) {
   try {
-
     if (req.method === "GET") {
       context.res = {
         status: 200,
@@ -14,7 +13,7 @@ module.exports = async function (context, req) {
     if (!name || !email || !message) {
       context.res = {
         status: 400,
-        body: "Missing required fields."
+        body: "Name, email, and message are required."
       };
       return;
     }
@@ -23,13 +22,11 @@ module.exports = async function (context, req) {
       status: 200,
       body: "Message received successfully."
     };
-
   } catch (error) {
-
+    context.log.error("Contact API error:", error);
     context.res = {
       status: 500,
       body: "Server error."
     };
-
   }
 };
