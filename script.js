@@ -18,13 +18,20 @@ document.getElementById("contactForm").addEventListener("submit", async function
       body: JSON.stringify(data)
     });
 
-    const result = await response.json();
+    const rawText = await response.text();
+    let result = {};
+
+    try {
+      result = rawText ? JSON.parse(rawText) : {};
+    } catch {
+      result = { error: rawText || "Non-JSON response returned by API." };
+    }
 
     if (response.ok) {
-      formStatus.textContent = result.message;
+      formStatus.textContent = result.message || "Message received successfully.";
       document.getElementById("contactForm").reset();
     } else {
-      formStatus.textContent = result.error || "There was a problem sending your message.";
+      formStatus.textContent = `Error ${response.status}: ${result.error || result.message || "Request failed."}`;
     }
   } catch (error) {
     console.error(error);
