@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shaquile Goff | Cloud Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Shaquile Goff</h1>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Aspiring Cloud Support Engineer</h2>
+      <p>
+        I build hands-on cloud and infrastructure projects focused on troubleshooting,
+        automation, and real-world support scenarios.
+      </p>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>
+        I'm an entry-level IT and cloud professional focused on building practical
+        projects in Azure and AWS. My interests include cloud support, network infrastructure,
+        monitoring, automation, troubleshooting, and the Oxford comma. 
+      </p>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+
+      <h3 class="cloud-section">AWS Projects</h3>
+
+      <div class="project-card">
+        <h3>AWS AI Integrated Serverless Voter Assistant Chatbot</h3>
+        <p>
+          Designed and provisioned a fully serverless AI chatbot webfront application. 
+          I hosted the static website on Amazon S3 behind a CloudFront front end. 
+          Amazon Lex was integrated to provide a user interface, with a Lambda functinon and DynamoDB
+          as the backend accessed via an API gateway. 
+        </p>
+
+        <a href="Projects/Voter-Assistant-Chatbot-Project.pdf" target="_blank" class="project-link">
+      View Full Project
+        </a>
+      </div>
+
+      <div class="project-card">
+        <h3>AWS CI/CD Pipeline Troubleshooting Project</h3>
+        <p>
+          Built and debugged a CI/CD pipeline using AWS developer tools, resolving
+          YAML syntax issues, IAM permission problems, and deployment failures.
+        </p>
+
+        <a href="Projects/CI_CD-AWS-troubleshoot.pdf" target="_blank" class="project-link">
+      View Full Project
+        </a>
+      </div>
+
+      <div class="project-card">
+        <h3>AWS Auto Scaling Group/Application Load Balancer Project</h3>
+        <p>
+          Implemented a highly available website using a multi-tiered architecture consisting
+          of EC2 instances deployed in an Auto Scaling Group and sitting behind an Application Load Balancer
+          for extra security. IaaC via Terraform was used to automate the project. Troubleshot problems related
+          to networking configuration, language syntax, and security group permissions.  
+        </p>
+
+        <a href="Projects/ALB_ASG-troubleshoot-project.pdf" target="_blank" class="project-link">
+      View Full Project
+        </a>
+      </div>
+
+      <h3 class="cloud-section">Azure Projects</h3>
+
+      <div class="project-card">
+        <h3>Azure Portfolio Website</h3>
+        <p>
+          Designed and deployed a personal cloud portfolio (This one!) using Azure Static Web Apps
+          and Azure Functions with a serverless contact form.
+        </p>
+
+        <a href="Projects/azure-portfolio-site.pdf" target="_blank" class="project-link">
+      View Full Project
+        </a>
+      </div>
+
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact Me</h2>
+
+      <form id="contactForm" class="contact-form">
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+        <input type="email" id="email" name="email" placeholder="Your email" required />
+        <textarea id="message" name="message" placeholder="Your message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <p id="formStatus"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Shaquile Goff</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
