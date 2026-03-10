@@ -4,9 +4,9 @@ document.getElementById("contactForm").addEventListener("submit", async function
   const formStatus = document.getElementById("formStatus");
 
   const data = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    message: document.getElementById("message").value
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    message: document.getElementById("message").value.trim()
   };
 
   try {
@@ -18,14 +18,16 @@ document.getElementById("contactForm").addEventListener("submit", async function
       body: JSON.stringify(data)
     });
 
+    const result = await response.json();
+
     if (response.ok) {
-      formStatus.textContent = "Message sent successfully.";
+      formStatus.textContent = result.message;
       document.getElementById("contactForm").reset();
     } else {
-      formStatus.textContent = "There was a problem sending your message.";
+      formStatus.textContent = result.error || "There was a problem sending your message.";
     }
   } catch (error) {
-    formStatus.textContent = "Server connection error.";
     console.error(error);
+    formStatus.textContent = "Server connection error.";
   }
 });
