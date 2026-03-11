@@ -18,13 +18,13 @@ document.getElementById("contactForm").addEventListener("submit", async function
       body: JSON.stringify(data)
     });
 
-    const resultText = await response.text();
+    const text = await response.text();
 
     if (response.ok) {
-      formStatus.textContent = resultText || "Message received successfully.";
+      formStatus.textContent = text || "Message stored successfully.";
       document.getElementById("contactForm").reset();
     } else {
-      formStatus.textContent = `Error ${response.status}: ${resultText || "Request failed."}`;
+      formStatus.textContent = `Error ${response.status}: ${text || "Request failed."}`;
     }
   } catch (error) {
     console.error(error);

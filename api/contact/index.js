@@ -2,7 +2,6 @@ const { TableClient } = require("@azure/data-tables");
 
 module.exports = async function (context, req) {
   try {
-
     if (req.method === "GET") {
       context.res = {
         status: 200,
@@ -26,7 +25,7 @@ module.exports = async function (context, req) {
     if (!connectionString) {
       context.res = {
         status: 500,
-        body: "Storage connection string missing."
+        body: "Missing STORAGE_CONNECTION_STRING."
       };
       return;
     }
@@ -38,7 +37,7 @@ module.exports = async function (context, req) {
 
     const entity = {
       partitionKey: "contact",
-      rowKey: Date.now().toString(),
+      rowKey: `${Date.now()}`,
       name,
       email,
       message
@@ -50,10 +49,7 @@ module.exports = async function (context, req) {
       status: 200,
       body: "Message stored successfully."
     };
-
   } catch (error) {
-    context.log.error("Contact API error:", error);
-
     context.res = {
       status: 500,
       body: `Server error: ${error.message}`
